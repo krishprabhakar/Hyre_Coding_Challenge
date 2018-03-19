@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Krish Prabhakar Hyre Coding Challenge </title>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	</head>
+	
+	<body>
+
+		<h2>Hyre Coding Challenge</h2>
+
+		<input type="number" name="time" id="time">
+		<button onclick="waitInSeconds()"> Wait for X Seconds </button>
+		 
+
+		<div id= target></div>
+
+		<div id= error></div>
+
+		<script>
+
+			function waitInSeconds() {
+				
+				var number = document.getElementById("time").value;
+				if (document.getElementById("target").innerHTML.startsWith("Please")){
+					document.getElementById("target").innerHTML = "Finished Processing";
+				}else{
+					document.getElementById("target").innerHTML = "";
+					document.getElementById("error").innerHTML = "";
+					
+					
+					if( number < 0 || number==""){
+						document.getElementById("error").innerHTML = "Please input a positive number in field above";
+						
+						
+					}else{
+						document.getElementById("target").innerHTML = "Please wait for "+ number + " seconds";
+						setTimeout(waitInSeconds, number*1000);
+						
+						
+					}
+				}
+			}
+
+		</script>
+
+	</body>
+</html>
+
